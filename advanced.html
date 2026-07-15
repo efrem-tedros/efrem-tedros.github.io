@@ -5,68 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Advanced Search</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
+        margin: 0;
         font-family: Arial, sans-serif;
-        max-width: 700px;
-        margin: 50px auto;
-        padding: 20px;
+        background: #fff;
+        color: #202124;
       }
       nav {
         display: flex;
-        gap: 12px;
-        margin-bottom: 20px;
+        justify-content: flex-end;
+        gap: 16px;
+        padding: 16px 24px;
       }
-      a {
-        color: #1a73e8;
+      nav a {
+        color: #202124;
         text-decoration: none;
+        font-size: 13px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 24px;
+      }
+      h1 {
+        font-size: 24px;
+        color: #d93025;
+        margin-bottom: 24px;
       }
       form {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 16px;
       }
-      label {
+      .field {
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        font-weight: bold;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .field label {
+        font-size: 13px;
+        color: #202124;
       }
       input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
+        width: 100%;
+        max-width: 500px;
+        padding: 10px 12px;
+        font-size: 14px;
+        border: 1px solid #dfe1e5;
+        border-radius: 4px;
+        outline: none;
+      }
+      input[type="text"]:focus {
+        border-color: #4d90fe;
       }
       button {
-        padding: 10px 14px;
-        width: fit-content;
+        align-self: flex-start;
+        padding: 10px 20px;
+        border: 1px solid #3079ed;
+        border-radius: 4px;
+        background: #4d90fe;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #357ae8;
       }
     </style>
   </head>
   <body>
     <nav>
       <a href="index.html">Google Search</a>
-      <a href="images.html">Images</a>
-      <a href="advanced.html">Advanced Search</a>
     </nav>
 
-    <h1>Google Advanced Search</h1>
-    <form action="https://www.google.com/advanced_search" method="get">
-      <label>
-        All these words
-        <input type="text" name="as_q" />
-      </label>
-      <label>
-        Exact phrase
-        <input type="text" name="as_epq" />
-      </label>
-      <label>
-        Any of these words
-        <input type="text" name="as_oq" />
-      </label>
-      <label>
-        None of these words
-        <input type="text" name="as_eq" />
-      </label>
-      <button type="submit">Advanced Search</button>
-    </form>
+    <div class="container">
+      <h1>Advanced Search</h1>
+      <form action="https://www.google.com/search" method="get">
+        <div class="field">
+          <label for="as_q">Find pages with… all these words:</label>
+          <input type="text" id="as_q" name="as_q" />
+        </div>
+        <div class="field">
+          <label for="as_epq">Find pages with… this exact word or phrase:</label>
+          <input type="text" id="as_epq" name="as_epq" />
+        </div>
+        <div class="field">
+          <label for="as_oq">Find pages with… any of these words:</label>
+          <input type="text" id="as_oq" name="as_oq" />
+        </div>
+        <div class="field">
+          <label for="as_eq">Find pages with… none of these words:</label>
+          <input type="text" id="as_eq" name="as_eq" />
+        </div>
+        <button type="submit">Advanced Search</button>
+      </form>
+    </div>
   </body>
 </html>
